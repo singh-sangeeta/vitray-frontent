@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./style.css"
+import './style.css'
 
 
 
@@ -10,6 +10,7 @@ class Form extends Component {
         this.state = {
             firstName: "",
             lastName: "",
+            email: "",
             password: "",
             gender: "",
 
@@ -26,6 +27,11 @@ class Form extends Component {
     lasthandler = (event) => {
         this.setState({
             lastName: event.target.value
+        })
+    }
+    emailhandler = (event) => {
+        this.setState({
+            [event.target.email]: event.target.value
         })
     }
     passwordhandler = (event) => {
@@ -46,6 +52,7 @@ class Form extends Component {
         this.setState({
             firstName: "",
             lastName: "",
+            email: "",
             password: '',
             gender: "",
         })
@@ -67,6 +74,8 @@ class Form extends Component {
             label > FirstName: < /label> <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="FirstName..." / > < br / >
             <
             label > LastName: < /label> <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="LastName..." / > < br / >
+            <
+            label > Email: < /label> <input type="email" value={this.state.email} onChange={this.emailhandler} placeholder="email..." / > < br / >
             <
             label > Password: < /label> <input type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password..." / > < br / >
             <
