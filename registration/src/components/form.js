@@ -28,7 +28,8 @@ class Form extends React.Component {
         e.preventDefault();
         if (this.validateForm()) {
             let fields = {};
-            fields["username"] = "";
+            fields["firstname"] = "";
+            fields["lastname"] = ";"
             fields["emailid"] = "";
             fields["mobileno"] = "";
             fields["password"] = "";
@@ -37,6 +38,14 @@ class Form extends React.Component {
         }
 
     }
+    componentDidMount() {
+        fetch('//127.0.0.1:8001/users/').then((resp) => {
+            resp.json().then((result) => {
+                console.warn(result.data)
+            })
+        })
+    }
+
 
     validateForm() {
 
@@ -44,17 +53,30 @@ class Form extends React.Component {
         let errors = {};
         let formIsValid = true;
 
-        if (!fields["username"]) {
+        if (!fields["firstname"]) {
             formIsValid = false;
-            errors["username"] = "*Please enter your username.";
+            errors["firstname"] = "*Please enter your username.";
         }
 
-        if (typeof fields["username"] !== "undefined") {
-            if (!fields["username"].match(/^[a-zA-Z ]*$/)) {
+        if (typeof fields["firstname"] !== "undefined") {
+            if (!fields["firstname"].match(/^[a-zA-Z ]*$/)) {
                 formIsValid = false;
-                errors["username"] = "*Please enter alphabet characters only.";
+                errors["firstname"] = "*Please enter alphabet characters only.";
             }
         }
+
+        if (!fields["lastname"]) {
+            formIsValid = false;
+            errors["lastname"] = "*Please enter your username.";
+        }
+
+        if (typeof fields["lastname"] !== "undefined") {
+            if (!fields["lastname"].match(/^[a-zA-Z ]*$/)) {
+                formIsValid = false;
+                errors["lastname"] = "*Please enter alphabet characters only.";
+            }
+        }
+
 
         if (!fields["emailid"]) {
             formIsValid = false;
@@ -88,7 +110,7 @@ class Form extends React.Component {
         }
 
         if (typeof fields["password"] !== "undefined") {
-            if (!fields["password"].match(/^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
+            if (!fields["password"].match(/^[a-zA-Z ]*$/)) {
                 formIsValid = false;
                 errors["password"] = "*Please enter secure and strong password.";
             }
@@ -115,13 +137,20 @@ class Form extends React.Component {
             name = "userRegistrationForm"
             onSubmit = { this.submituserRegistrationForm } >
             <
-            label > Name: < /label> <
+            label > FirstName: < /label> <
             input type = "text"
-            name = "username"
+            name = "firstname"
             value = { this.state.fields.username }
             onChange = { this.handleChange }
             /> <
-            div className = "errorMsg" > { this.state.errors.username } < /div> <
+            div className = "errorMsg" > { this.state.errors.firstname } < /div> <
+            label > LastName: < /label> <
+            input type = "text"
+            name = "lastname"
+            value = { this.state.fields.username }
+            onChange = { this.handleChange }
+            /> <
+            div className = "errorMsg" > { this.state.errors.lastname } < /div> <
             label > Email ID: < /label> <
             input type = "text"
             name = "emailid"
@@ -136,7 +165,7 @@ class Form extends React.Component {
             onChange = { this.handleChange }
             /> <
             div className = "errorMsg" > { this.state.errors.mobileno } < /div> <
-            label > Password < /label> <
+            label > Password: < /label> <
             input type = "password"
             name = "password"
             value = { this.state.fields.password }
@@ -147,8 +176,8 @@ class Form extends React.Component {
             className = "button"
             value = "Register" / >
             <
-            /form> <
-            /div> <
+            /form> < /
+            div > <
             /div>
 
         );
