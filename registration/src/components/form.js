@@ -39,7 +39,7 @@ class Form extends React.Component {
 
     }
     componentDidMount() {
-        fetch('//127.0.0.1:8001/users/').then((resp) => {
+        fetch('http://127.0.0.1:8001/admin/auth/user/add/').then((resp) => {
             resp.json().then((result) => {
                 console.warn(result.data)
             })
@@ -176,8 +176,8 @@ class Form extends React.Component {
             className = "button"
             value = "Register" / >
             <
-            /form> < /
-            div > <
+            /form> <
+            /div> <
             /div>
 
         );
