@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import {
     Container,
     Col,
@@ -9,9 +11,11 @@ import {
     Button,
     FormFeedback,
 } from 'reactstrap';
-import './App.css';
 
-class App extends Component {
+import Register from "./Registration";
+
+
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,13 +29,6 @@ class App extends Component {
             },
         }
         this.handleChange = this.handleChange.bind(this);
-    }
-    componentDidMount() {
-        fetch('https://reqres.in/api/users?page=2').then((resp) => {
-            resp.json().then((result) => {
-                console.warn(result.data)
-            })
-        })
     }
 
     validateEmail(e) {
@@ -61,16 +58,21 @@ class App extends Component {
 
     render() {
         const { email, password } = this.state;
-        return ( 
-        <Container className = "App" >
-            <h2 > Sign In </h2> 
-            <Form className = "form"
+        return ( <
+            Container className = "App" >
+            <
+            h2 > Sign In < /h2>  <
+            Form className = "form"
             onSubmit = {
-                (e) => this.submitForm(e) } >
-            <Col >
-            <FormGroup >
-            <Label > Username </Label> 
-            <Input type = "email"
+                (e) => this.submitForm(e)
+            } >
+            <
+            Col >
+            <
+            FormGroup >
+            <
+            Label > Username < /Label>  <
+            Input type = "email"
             name = "email"
             id = "exampleEmail"
             placeholder = "email"
@@ -82,26 +84,37 @@ class App extends Component {
                     this.validateEmail(e)
                     this.handleChange(e)
                 }
-            }/> 
-            </FormGroup> 
-            </Col> 
-            <Col >
-            <FormGroup >
-            <Label for = "examplePassword" > Password </Label>
-             <Input type = "password"
+            }
+            />  <
+            /FormGroup>  <
+            /Col>  <
+            Col >
+            <
+            FormGroup >
+            <
+            Label
+            for = "examplePassword" > Password < /Label> <
+            Input type = "password"
             name = "password"
             id = "examplePassword"
             placeholder = "********"
             value = { password }
             onChange = {
-                (e) => this.handleChange(e) }/> 
-            </FormGroup> 
-            </Col> 
-            <Button > Submit </Button> 
-            </Form> 
-            </Container>
+                (e) => this.handleChange(e)
+            }
+            />  <
+            /FormGroup>  <
+            /Col>  <
+            Button > Login < /Button>  <
+            buttontoolbar >
+            <
+            button
+            const path = '/Components/Registration' > Register < /button> <
+                /buttontoolbar> <
+                /Form>  <
+                /Container>
         );
     }
 }
 
-export default App;
+export default Login;

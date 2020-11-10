@@ -1,8 +1,8 @@
 import React from 'react';
-import './style.css';
+import './Registration.css';
 
 
-class Form extends React.Component {
+class Register extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -140,49 +140,58 @@ class Form extends React.Component {
 
 
     render() {
-        return ( 
-            <div id = "main-registration-container" >
-            <div id = "register" >
-            <h2 > Registration page </h2> 
-           <form method = "post"
+        return ( <
+            div id = "main-registration-container" >
+            <
+            div id = "register" >
+            <
+            h2 > Registration page < /h2>  <
+            form method = "post"
             name = "userRegiIIIstrationForm"
-            onSubmit = { this.submituserRegistrationForm }>
-            <label > FirstName </label> 
-            <input type = "text"
+            onSubmit = { this.submituserRegistrationForm } >
+            <
+            label > FirstName < /label>  <
+            input type = "text"
             name = "firstname"
             value = { this.state.fields.username }
-            onChange = { this.handleChange }/> 
-            <div className = "errorMsg" > { this.state.errors.firstname } </div> 
-            <label > LastName </label> 
-            <input type = "text"
+            onChange = { this.handleChange }
+            />  <
+            div className = "errorMsg" > { this.state.errors.firstname } < /div>  <
+            label > LastName < /label>  <
+            input type = "text"
             name = "lastname"
             value = { this.state.fields.username }
-            onChange = { this.handleChange }/> 
-            <div className = "errorMsg" > { this.state.errors.lastname } </div> 
-            <label > Email ID: </label> 
-            <input type = "text"
+            onChange = { this.handleChange }
+            />  <
+            div className = "errorMsg" > { this.state.errors.lastname } < /div>  <
+            label > Email ID: < /label>  <
+            input type = "text"
             name = "emailid"
             value = { this.state.fields.emailid }
-            onChange = { this.handleChange }/> 
-            <div className = "errorMsg" > { this.state.errors.emailid } </div> 
-            <label > Mobile No: </label> 
-            <input type = "text"
+            onChange = { this.handleChange }
+            />  <
+            div className = "errorMsg" > { this.state.errors.emailid } < /div>  <
+            label > Mobile No: < /label>  <
+            input type = "text"
             name = "mobileno"
             value = { this.state.fields.mobileno }
-            onChange = { this.handleChange }/> 
-            <div className = "errorMsg" > { this.state.errors.mobileno } </div> 
-            <label > Password </label> 
-            <input type = "password"
+            onChange = { this.handleChange }
+            />  <
+            div className = "errorMsg" > { this.state.errors.mobileno } < /div>  <
+            label > Password < /label>  <
+            input type = "password"
             name = "password"
             value = { this.state.fields.password }
-            onChange = { this.handleChange }/> 
-            <div className = "errorMsg" > { this.state.errors.password } </div> 
-            <input type = "submit"
+            onChange = { this.handleChange }
+            />  <
+            div className = "errorMsg" > { this.state.errors.password } < /div>  <
+            input type = "submit"
             className = "button"
-            value = "Register" />
-            </form> 
-            </div > 
-            </div>
+            value = "Register" / >
+            <
+            /form>  <
+            /div >  <
+            /div>
         );
     }
 
@@ -190,4 +199,4 @@ class Form extends React.Component {
 }
 
 
-export default Form;
+export default Register;
